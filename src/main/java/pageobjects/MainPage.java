@@ -3,11 +3,17 @@ package pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class MainPage extends BasePage {
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 
-    public MainPage(WebDriver driver) {
+public class MainPage extends BasePage {
+    protected Properties testProperties = new Properties();
+    public MainPage(WebDriver driver) throws IOException {
         super(driver);
-        PAGE_URL = "https://www.tinkoff.ru";
+        testProperties.load(new FileReader("src/test/resources/testProperties.properties"));
+        PAGE_URL = testProperties.getProperty("baseUrl");
         PAGE_TITLE = "Оплата ЖКХ без комиссии. Коммунальные платежи онлайн";
     }
 

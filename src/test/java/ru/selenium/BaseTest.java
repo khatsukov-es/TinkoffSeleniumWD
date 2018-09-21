@@ -8,13 +8,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import pageobjects.MainPage;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
    private WebDriver driver;
-
+   protected Properties testProperties = new Properties();
     @Before
-    public void setup() {
+    public void setup() throws IOException {
+        testProperties.load(new FileReader("src/test/resources/testProperties.properties"));
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();

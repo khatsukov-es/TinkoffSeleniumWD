@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.FileReader;
+import java.util.Properties;
+
 public class BasePage {
     @FindBy(xpath = "//*[@id=\"firstMenu\"]//a[.='Платежи']")
     WebElement payments;
@@ -22,6 +25,7 @@ public class BasePage {
 
     @FindBy(xpath = "//*[@id=\"firstMenu\"]//span[.='все продукты']")
     WebElement allproducts;
+
 
     protected WebDriver driver;
     protected String PAGE_URL;

@@ -24,11 +24,13 @@ public class PaymentsTest extends BaseTest {
         MainPage main = getMainPage();
         LoginPage loginPage = main.loadPage().goToLoginPage();
 
-        Thread.sleep(30000);
 
-        //TODO  Нужно вбить вручную телефон и код из смс
-//      loginPage.enterLogin("Some phone number");
-//      main = loginPage.confirmLogin();
+
+        loginPage.enterLogin(testProperties.getProperty("phoneNumber"));
+        loginPage.confirmLogin();
+
+        Thread.sleep(15000);
+        //TODO  Нужно вбить вручную код из смс
 
         main = getMainPage();
         PaymentsPage paymentsPage = main.goToPaymentsPage();
