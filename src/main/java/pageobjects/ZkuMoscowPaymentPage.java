@@ -19,7 +19,7 @@ public class ZkuMoscowPaymentPage extends  BasePage {
     @FindBy(xpath = "//li/div/a/span[.='История']")
     WebElement history;
 
-    //Попробовать через id.
+
     @FindBy(xpath = "//div[contains(@class,'Grid')]//input[@id=\"payerCode\"]")
     WebElement payerCodeInput;
 
@@ -27,9 +27,9 @@ public class ZkuMoscowPaymentPage extends  BasePage {
     @FindBy(xpath = "//form/div[1]/div/div[2]")
     WebElement payerCodeNotValidError;
 
-
+    //*[@id="period"]
     //Попробовать через id.
-    @FindBy(xpath = "//*[@id=\"period\"]")
+    @FindBy(id = "period")
     WebElement period;
 
     @FindBy(xpath = "//form/div[2]/div/div[2]")
@@ -72,10 +72,10 @@ public class ZkuMoscowPaymentPage extends  BasePage {
 
     public void payZHKUinMoscowClick(){
         payZHKUinMoscow.click();
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class,'Grid')]//input[@id=\"payerCode\"]")));
     }
 
     public void enterPayerCode(String text){
+        (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(payerCodeInput));
         setTextToElement(payerCodeInput,text);
     }
 
@@ -86,7 +86,6 @@ public class ZkuMoscowPaymentPage extends  BasePage {
 
     public void enterCardNumber(String text) throws InterruptedException {
         setTextToElement(cardNumberInput,text);
-        Thread.sleep(2000);
     }
 
     public void enterSumOfPayment(String text){

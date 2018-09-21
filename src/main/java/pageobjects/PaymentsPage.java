@@ -34,7 +34,7 @@ public class PaymentsPage extends BasePage {
         setTextToElement(fastSearchProviderInput,text);
     }
 
-    //TODO сделать прокидывание названия категории и поиск элемента по ней
+
     public ServiceProvidersPage chooseServiceProviders() {
         utilitiesZKH.click();
         return ServiceProvidersPage.getInstance(driver);

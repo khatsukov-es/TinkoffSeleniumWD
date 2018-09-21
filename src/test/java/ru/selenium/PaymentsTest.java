@@ -39,7 +39,7 @@ public class PaymentsTest extends BaseTest {
             serviceProvidersPage = regionsPage.pickRegion("Москва");
         }
 
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         Assert.assertEquals(providerName,serviceProvidersPage.getProviderNamebyNumber(1));
 
         ZkuMoscowPaymentPage zkuMoscowPaymentPage = serviceProvidersPage.clickToFirstProvider();
@@ -60,9 +60,9 @@ public class PaymentsTest extends BaseTest {
         paymentsPage.searchProviderByName(providerName);
         String receivedName = paymentsPage.getProviderNameFromSearchedByNumber(1);
         Assert.assertEquals(providerName, receivedName);
-        Thread.sleep(1500);
+        Thread.sleep(1000);
         paymentsPage.chooseSearchedProviderByNumber(1);
-        Thread.sleep(2000);
+        Thread.sleep(1500);
         Assert.assertTrue("Загружена страница не с провайдером  " + providerName, getDriver().getTitle().contains(providerName));
 
         paymentsPage = zkuMoscowPaymentPage.goToPaymentsPage();
